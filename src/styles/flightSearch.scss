@@ -1,0 +1,93 @@
+h1.pretty{
+  color: #FFF;
+  text-align: center;
+  font-size: 40px;
+  margin: 50px 0px 100px 0px;
+}
+.main-container {
+
+  .search-filters {
+    display: flex;
+
+    &>* {
+      flex: 12 12;
+    }
+
+    select,
+    input {
+      border-radius: 0;
+    }
+    .buy-button{
+      align-self:end;
+      button{
+        height: 55px;
+        border-radius: 0px 10px 10px 0px;
+      }
+    }
+    &>div:nth-of-type(1) input,&>div:nth-of-type(1)  select {
+      border-radius: 10px 0px 0px 10px !important;
+    }
+
+    // *:nth-child(5) input, *:nth-child(5) select,{
+    //   border-radius: 10px 0px 0px 10px;
+    // }
+    .date-selection {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    input.pretty,
+    select.pretty {
+      height: 55px;
+      border-radius: 0px !important;
+    }
+
+    label.pretty {
+      color: #000;
+      font-weight: 300;
+      font-size: 17px;
+    }
+
+    .counter {
+      display: flex;
+      align-items: center;
+      height: 55px;
+      text-align: center;
+      justify-content: center;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 0px;
+
+      button {
+        background: white;
+        color: #3498db;
+        border: 1px solid #cacaca;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0 8px;
+        padding: 8px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #3498db;
+          color: #fff;
+        }
+
+        &:first-child {
+          margin-left: 0px;
+        }
+
+        img {
+          width: 15px;
+        }
+      }
+    }
+  }
+}

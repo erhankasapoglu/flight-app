@@ -1,0 +1,129 @@
+.main-container {
+  .ticket {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    &:after {
+      position: absolute;
+      width: 400px;
+      background: #b8b8b8;
+      border-right: 2px dashed black;
+      z-index: -1;
+      height: 100%;
+      content: "\00a0 ";
+      top: 0;
+      left: 0;
+    }
+
+    .flight-info {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .info-item {
+        align-self: center;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+          color: #000;
+        }
+
+        span {
+          display: block;
+          color: #333;
+        }
+
+        .mini-info {
+          font-size: 12px;
+          font-weight: 300;
+          color: #333;
+          margin-top: 7px;
+          text-align: center;
+        }
+
+        &:nth-child(1) {
+          font-size: 30px;
+          font-weight: 300;
+          flex: 5 5;
+        }
+
+        &:nth-child(2) {
+          font-size: 20px;
+          font-weight: 300;
+          flex: 12 12;
+
+          span {
+            &:nth-child(1) {
+              font-size: 20px;
+              font-weight: 300;
+            }
+
+            &:nth-child(2) {
+              font-size: 15px;
+              font-weight: 300;
+            }
+
+          }
+        }
+
+        &:nth-child(3) {
+          font-size: 20px;
+          font-weight: 300;
+          text-align: right;
+          flex: 5 5;
+        }
+
+        &:nth-child(4) {
+          font-size: 20px;
+          font-weight: 300;
+          text-align: center;
+          flex: 9 9;
+
+        }
+
+        &:nth-child(5) {
+          font-size: 20px;
+          font-weight: 300;
+          flex: 5 5;
+        }
+
+        &:nth-child(6) {
+          flex: 10 10;
+          align-self: flex-start !important;
+          text-align: right;
+        }
+
+      }
+
+      .item-price {
+        border-radius: 10px;
+        border: 1px solid #bf0808;
+        padding: 3px 5px;
+        background: rgba(215, 215, 215, 0.2588235294);
+        color: #bf0808;
+        font-size: 24px;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .buy-now {
+        cursor:pointer;
+        border-radius: 10px;
+        padding: 4px 5px;
+        background: #bf0808;
+        color: #FFF;
+        font-size: 24px;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 5px;
+      }
+    }
+
+  }
+}

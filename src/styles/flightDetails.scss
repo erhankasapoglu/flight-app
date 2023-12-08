@@ -1,0 +1,121 @@
+.main-container {
+    h2.pretty {
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        color: #18455c !important;
+        margin: 10px 0px 20px 0px !important;
+        text-align: left !important;
+    }
+
+    hr.pretty {
+        border: none;
+        border-bottom: 1px solid #09476a;
+        margin: 0px 0px 30px 0px;
+    }
+
+    .passenger-area {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        &>div {
+            flex: 1 1;
+        }
+    }
+
+    .flight-date-container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .flight-text {
+            font-weight: 300;
+            font-size: 28px;
+            color: black;
+            letter-spacing: 5px;
+        }
+
+        .flight-spacer {
+            font-weight: 900;
+            font-size: 25px;
+            letter-spacing: 5px;
+            color: #18455c;
+            text-shadow: 3px 3px 0px #707070;
+            line-height: 0;
+        }
+    }
+
+    .flight-info-container {
+        display: flex;
+        margin: 20px 0px;
+
+        .flight-airline-company {
+            align-self: center;
+            font-size: 40px;
+            font-weight: 300;
+            text-align: center;
+            color: #18455c;
+        }
+
+        .flight-info {
+            .flight-info-text {
+                display: block;
+                font-size: 15px;
+                font-weight: 600;
+                color: #18455c;
+            }
+
+            .flight-info-header {
+                display: block;
+                margin-bottom: 10px;
+                font-size: 25px;
+                font-weight: 200;
+            }
+        }
+
+        &>div {
+            flex: 1 1;
+        }
+    }
+
+    .contact-area {
+        .contact-col {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &>div {
+                flex: 0 0 250px;
+            }
+        }
+
+        .contact-row {
+            margin-top: 10px;
+        }
+    }
+
+    .invoice-area {
+        .invoice-col {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &>div {
+                flex: 0 0 250px;
+            }
+        }
+
+        .invoice-row{
+            margin-bottom:10px;
+            .radio-area{
+                label{
+                    margin:0px 10px;
+                    &:first-child{
+                        margin:0px 10px 0px 0px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.timeline-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: rgba(75, 75, 75, 0.2509803922);
+  margin: 40px auto 0px auto;
+  padding: 10px 0px;
+  border-radius: 10px;
+  text-align: center;
+  }
+  
+  .timeline-step {
+    width: 150px;
+    display: flex;
+    flex: 0 0 150px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+  }
+  
+  .step-number {
+    width: 60px;
+    height: 60px;
+    border: 5px solid transparent;
+    background-color: rgb(197 197 197 / 50%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  
+  .step-number span {
+    font-size: 18px;
+  }
+  
+  .connector {
+    flex: 0 0 100px;
+    height: 5px;
+    background-color: #000;
+    margin: 0 5px;
+    position: absolute;
+    right: -60px;
+    top: 30px;
+    width: 100px;
+  }
+  
+  .step-label {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .ongoing .step-number {
+    border-color: #7d8f9a91;
+    background: #ffffff9e;
+  }
+  
+  .completed .step-number {
+    border-color: #145e89;
+    background: #145e893b;
+    color: #FFF;
+  }
+  
+  .completed .connector {
+    background-color: #145e89;
+  }
+  
+
+  

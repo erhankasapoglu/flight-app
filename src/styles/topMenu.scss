@@ -1,0 +1,33 @@
+.top-menu {
+    display: block;
+    padding: 20px;
+    background: rgba(75, 75, 75, 0.25);
+
+    .content-drawer {
+        align-items: center;
+        width: 1200px;
+        margin: 0px auto;
+        display: flex;
+
+        nav {
+            display: flex;
+            gap: 20px;
+
+            a {
+                font-size: 16px;
+                text-decoration: none;
+                font-weight: 300;
+                color: #FFF;
+            }
+        }
+
+        .logo {
+            color: #8be0ff;
+            font-weight: 700;
+            font-size: 20px;
+            width: 150px;
+            letter-spacing: 4px;
+
+        }
+    }
+}
