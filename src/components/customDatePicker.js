@@ -74,6 +74,8 @@ const CustomDatePicker = ({ selected, onChange, placeholder}) => {
             )}
             className="pretty"
             selected = { selected }
+            serialize={(date) => {console.log("xxx"); date.toISOString()}}
+            deserialize={(dateString) => {console.log("zxd"); new Date(dateString)}}
             onChange = { onChange }
             placeholderText = { placeholder }
 

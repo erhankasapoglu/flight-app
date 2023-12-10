@@ -19,7 +19,8 @@ const FlightList = () => {
     <TopMenu/>
     <ProgressTimeline progress="1"></ProgressTimeline>
     <div className="flight-list main-container">
-      <h2>Uçuş Listesi</h2>
+      <h2 className="pretty">Uçuş Listesi</h2>
+      <hr className="pretty"/>
       {state.flights.map((flight, index) => (
         <div key={index} className="ticket">
           <div className="flight-info">

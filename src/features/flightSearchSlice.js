@@ -4,8 +4,8 @@ const flightSearchSlice = createSlice({
   name: 'flightSearch',
   initialState: {
     adultCount: 1,
-    startDate: new Date(),
-    endDate: new Date(),
+    startDate: new Date().toLocaleDateString('en-US'),
+    endDate: new Date().toLocaleDateString('en-US'),
     selectedArrPort: null,
     selectedDepPort: null,
   },

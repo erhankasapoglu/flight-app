@@ -32,12 +32,10 @@ const FlightSearch = ({ navigation }) => {
       return (
         leg.depPort === flightSearch.selectedDepPort &&
         leg.arrPort === flightSearch.selectedArrPort &&
-        Date.parse(leg.flightDate) >= flightSearch.startDate.getTime() &&
-        Date.parse(leg.flightDate) <= flightSearch.endDate.getTime()
+        Date.parse(leg.flightDate) >= new Date(flightSearch.startDate).getTime() &&
+        Date.parse(leg.flightDate) <= new Date(flightSearch.endDate).getTime()
       );
     });
-    console.log(flightSearch.startDate);
-    console.log(flightSearch.endDate);
 
     navigate('/flights', { state: { flights: flights, adultCount: flightSearch.adultCount } });
   };
@@ -81,12 +79,12 @@ const FlightSearch = ({ navigation }) => {
 
         <div className="date-picker">
           <label className="pretty">Tarih Aralığı</label>
-          <CustomDatePicker selected={flightSearch.startDate} onChange={(date) => dispatch(setStartDate(date))} />
+          <CustomDatePicker selected={new Date(flightSearch.startDate)} onChange={(date) => dispatch(setStartDate(date.toISOString()))} />
         </div>
 
         <div className="date-picker">
           <label className="pretty">&nbsp;</label>
-          <CustomDatePicker selected={flightSearch.endDate} onChange={(date) => dispatch(setEndDate(date))} />
+          <CustomDatePicker selected={new Date(flightSearch.endDate)} onChange={(date) => dispatch(setEndDate(date.toISOString()))} />
         </div>
         <div className="passenger-count">
           <label className="pretty">Yetişkin Sayısı</label>

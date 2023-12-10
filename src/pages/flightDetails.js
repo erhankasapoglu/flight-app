@@ -19,7 +19,6 @@ const FlightDetails = () => {
             dispatch(setPassengers({ index, field: "nationalid", value: "" }));
         }
         dispatch(setPassengers({ index, field, value }));
-        console.log(flightDetails);
     };
     const handleContactEmail = (email) => {
         dispatch(setContactEmail(email));
@@ -42,9 +41,9 @@ const FlightDetails = () => {
     const handleInvoiceIdentity = (invoiceIdentity) => {
         dispatch(setInvoiceIdentity(invoiceIdentity));
     };
-    const handleInvoiceIsTCIdentity = (invoiceIsTCIdentity) => {
-        if (invoiceIsTCIdentity) handleInvoiceIdentity("");
-        dispatch(setInvoiceIsNotTCIdentity(invoiceIsTCIdentity));
+    const handleInvoiceIsNotTCIdentity = (invoiceIsNotTCIdentity) => {
+        if (invoiceIsNotTCIdentity) handleInvoiceIdentity("");
+        dispatch(setInvoiceIsNotTCIdentity(invoiceIsNotTCIdentity));
     };
     const handleInsuranceIsSelected = (isInsuranceSelected) => {
         dispatch(setInsuranceIsSelected(isInsuranceSelected));
@@ -128,7 +127,7 @@ const FlightDetails = () => {
                 <hr className='pretty' />
 
                 {Array.from({ length: state.adultCount }).map((person, index) => (
-                    <React.Fragment>
+                    <React.Fragment key={index}>
                         <h3 className="pretty">{index + 1}. Yolcu</h3>
                         <div className='passenger-area'>
                             <div className="radio-area">
@@ -171,8 +170,8 @@ const FlightDetails = () => {
                             <div className="input-area date-picker">
                                 <CustomDatePicker
                                     placeholder="Doğum Tarihi"
-                                    selected={(flightDetails.passengers[index] && flightDetails.passengers[index].birthdate) ? flightDetails.passengers[index].birthdate : ""}
-                                    onChange={(date) => handlePassengers(index, 'birthdate', date)}
+                                    selected={(flightDetails.passengers[index] && flightDetails.passengers[index].birthdate) ? new Date(flightDetails.passengers[index].birthdate) : ""}
+                                    onChange={(date) => handlePassengers(index, 'birthdate', date.toISOString())}
                                 />
                             </div>
                             <div className="input-area">
@@ -197,7 +196,6 @@ const FlightDetails = () => {
                         </div>
                     </React.Fragment>
                 ))}
-                <button className="pretty" type="button" onClick={handlePassengers}>Satın Al</button>
             </div>
             <div className="ticket-form main-container">
                 <h2 className="pretty">İletişim Bilgileri</h2>
@@ -295,14 +293,14 @@ const FlightDetails = () => {
                                 value={flightDetails.invoiceIdentity ? flightDetails.invoiceIdentity : ""}
                                 onChange={(e) => handleInvoiceIdentity(e.target.value)}
                                 placeholder="T.C Kimlik No"
-                                disabled={flightDetails.invoiceIsTCIdentity ? "disabled" : ""}
+                                disabled={flightDetails.invoiceIsNotTCIdentity ? "disabled" : ""}
                             />
                         </div>
                         <div className="input-area">
                             <label>
                                 <input
                                     type="checkbox"
-                                    onChange={(e) => handleInvoiceIsTCIdentity(e.target.checked)}
+                                    onChange={(e) => handleInvoiceIsNotTCIdentity(e.target.checked)}
                                 />
                                 T.C vatandaşı değilim.
                             </label>
@@ -330,8 +328,9 @@ const FlightDetails = () => {
                         <span align="right" className="flight-info-text">{flightDetails.isInsuranceSelected ? (state.adultCount * insuranceCostPerAdult).toFixed(2) : 0} {currencyIcon(state.flight.priceDetail.basePrice.currency)}</span>
                     </div>
                 </div>
-
+                <button className="pretty" type="button" onClick={()=>console.log(flightDetails)}>Satın Al</button>
             </div>
+
         </React.Fragment>
     );
 };
