@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import CustomDatePicker from '../components/customDatePicker';
 import { useLocation } from 'react-router-dom';
 import '../styles/flightDetails.scss';
@@ -12,6 +13,7 @@ import TopMenu from '../components/topMenu';
 const FlightDetails = () => {
     const flightDetails = useSelector((state) => state.flightDetails);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { state } = useLocation();
     const insuranceCostPerAdult = 123;
     const handlePassengers = (index, field, value) => {
@@ -51,11 +53,20 @@ const FlightDetails = () => {
     const searchPort = (portCode) => {
         return destinationData.ports.find(item => item.code === portCode).explanationOnly;
     };
+    const handleBuyButton = () => {
+        let totalAmount = 0;
+        let insuranceAmount = flightDetails.isInsuranceSelected ? (state.adultCount * insuranceCostPerAdult) : 0
+        let ticketAmount = (state.adultCount * state.flight.priceDetail.basePrice.amount);
+        let taxAmount = (state.adultCount * state.flight.priceDetail.totalTax.amount)
+        let additionalAmounts = (state.adultCount * state.flight.priceDetail.surcharge.amount)
+        totalAmount = insuranceAmount+ticketAmount+taxAmount+additionalAmounts;
+        navigate('/payment', { state: { totalAmount:`${totalAmount.toFixed(2)} ${currencyIcon(state.flight.priceDetail.basePrice.currency)}` }});
+    }
     return (
         <React.Fragment>
-            <TopMenu/>
+            <TopMenu />
             <ProgressTimeline progress="2"></ProgressTimeline>
-            
+
             <div className="ticket-form main-container">
                 <h2 className="pretty">Uçuş Bilgileri</h2>
                 <hr className='pretty' />
@@ -328,7 +339,7 @@ const FlightDetails = () => {
                         <span align="right" className="flight-info-text">{flightDetails.isInsuranceSelected ? (state.adultCount * insuranceCostPerAdult).toFixed(2) : 0} {currencyIcon(state.flight.priceDetail.basePrice.currency)}</span>
                     </div>
                 </div>
-                <button className="pretty" type="button" onClick={()=>console.log(flightDetails)}>Satın Al</button>
+                <button className="pretty" type="button" onClick={handleBuyButton}>Satın Al</button>
             </div>
 
         </React.Fragment>

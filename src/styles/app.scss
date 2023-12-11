@@ -15,7 +15,18 @@ body {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
-
+.flex-area{
+  display: flex;
+}
+.gap10{
+  gap:10px;
+}
+.row{
+  flex-direction: row;
+}
+.col{
+  flex-direction: column;
+}
 .main-container {
   max-width: 1200px;
   margin: 50px auto;
